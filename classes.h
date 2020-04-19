@@ -74,12 +74,14 @@ class Scoreboard
     void showScoreboard()
     { 
       string color = "\x1b[33;1m";
+      string bold = "\x1b[" + to_string(50) + ";1m" ;
       string reset = "\x1b[0m";
         
         system("clear");
         
         
         //Show Scoreboard
+        cout<<reset;
         for(int i = 0; i < 45; i++) { cout << "_"; }
         cout << endl; 
         cout << color << "\n\t\t2020 Corona Virus Bowl\n"<< reset;
@@ -89,16 +91,16 @@ class Scoreboard
         cout << setw(10) << team1.getName() << "\t\t\t\t" << setw(12) << team2.getName()<< endl;
         color = "\x1b[91;1m"; //red 
         cout << color << setw(7) << team1.getScore() << "\t\t\t\t\t\t" << setw(6) <<  team2.getScore()  << reset<< endl;
-        cout << "Period: " << period << endl; 
+        cout << "\t\t\t\tQTR: " << period << endl; 
 
         //dealing with Boolean data
         if(poss == true)
         {
-          cout << team1.getName()<<" have the ball" << endl; 
+          cout <<bold<< team1.getName()<<reset<<" have the ball" << endl; 
         }
         else
         {
-          cout << team2.getName()<<" have the ball" << endl; 
+          cout <<bold<< team2.getName()<<reset<< " have the ball" << endl; 
         }
       for(int i = 0; i < 45; i++) { cout << "_"; }
     }

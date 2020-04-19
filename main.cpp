@@ -64,31 +64,57 @@ s.setTeam2(tTwoMain); //setTeam2 to the latest data
         cout << "\nMenu: " << endl; 
         cout << "A. Update "<<tOneMain.getName()<<" score" << endl; 
         cout << "B. Update "<<tTwoMain.getName()<<" score" << endl; 
+        cout << "C. Quarter update"<<endl;
+        cout << "D. Automatic ball possesion switch"<<endl;
         cout << "X. To Exit" << endl; 
         cin >> decision; 
 
         if(decision == 'a' || decision == 'A')
-        {
-          cout << "What is the new score? > ";
-          cin >> newScore; 
-          tOneMain.setScore(newScore);
-          cout << "\nConnecting to server..."<< endl;
-          sleep(3); //pause 3 seconds. 
-        
-        }
+          {
+            cout << "What is the new score? > ";
+            cin >> newScore; 
+            tOneMain.setScore(newScore);
+            cout <<red<< "\nConnecting to server..."<<reset<< endl;
+            sleep(3); //pause 3 seconds. 
+          
+          }
         else if(decision == 'b' || decision == 'B')
-        {
-          cout << "What is the new score? > ";
-          cin >> newScore; 
-          tTwoMain.setScore(newScore);
-          cout << "\nConnecting to server..."<< endl;
-          sleep(3); //pause 3 seconds. 
-        
-        }
+          {
+            cout << "What is the new score? > ";
+            cin >> newScore; 
+            tTwoMain.setScore(newScore);
+            cout <<red<< "\nConnecting to server..."<<reset<< endl;
+            sleep(3); //pause 3 seconds. 
+          
+          }
+
+        else if(decision == 'c' || decision == 'C')
+          {
+            cout << "What quater is it? > ";
+            cin >> newScore; 
+            s.setPeriod(newScore);
+            cout <<red<< "\nConnecting to server..."<<reset<< endl;
+            sleep(3); //pause 3 seconds. 
+          }
+
+
+        else if(decision == 'd' || decision == 'C')
+          {
+            if (s.getPoss() == true)
+              s.setPoss(false);
+            else 
+              s.setPoss(true);
+          }
+
         else if(decision == 'x' || decision == 'X')
-        {
-          cout << "\nEXIT. Go Mavs!!!" << endl; 
-        }
+          {
+            system("clear");
+
+            cout<<red<<"Disconnecting from server..."<<reset<<endl;
+            sleep(3);
+            cout <<orange<< "\nDisconnected" <<reset<< endl; 
+            
+          }
 
         s.setTeam1(tOneMain); //setTeam1 to the latest data 
         s.setTeam2(tTwoMain); //setTeam2 to the latest data 
