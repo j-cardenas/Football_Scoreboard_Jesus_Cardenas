@@ -64,7 +64,7 @@ s.setTeam2(tTwoMain); //setTeam2 to the latest data
         cout << "\nMenu: " << endl; 
         cout << "A. Update "<<tOneMain.getName()<<" score" << endl; 
         cout << "B. Update "<<tTwoMain.getName()<<" score" << endl; 
-        cout << "C. Quarter update"<<endl;
+        cout << "C. Automatic quater switch"<<endl;
         cout << "D. Automatic ball possesion switch"<<endl;
         cout << "X. To Exit" << endl; 
         cin >> decision; 
@@ -90,9 +90,12 @@ s.setTeam2(tTwoMain); //setTeam2 to the latest data
 
         else if(decision == 'c' || decision == 'C')
           {
-            cout << "What quater is it? > ";
-            cin >> newScore; 
-            s.setPeriod(newScore);
+            int updater;
+            updater=s.getPeriod(); 
+            if (updater<5)
+              {
+              s.setPeriod((updater+1));
+              }
             cout <<red<< "\nConnecting to server..."<<reset<< endl;
             sleep(3); //pause 3 seconds. 
           }

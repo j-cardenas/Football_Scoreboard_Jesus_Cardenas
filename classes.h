@@ -10,27 +10,21 @@ class Team
     int score; 
     int fouls; 
     string name; 
-    bool bonusFirstHalf;
-    bool bonusSecondHalf; 
+   
   public: 
     Team()//default constructor  
     {
       score = 0;
       fouls = 0; 
       name = "";
-      bonusFirstHalf = false; 
-      bonusSecondHalf = false; 
     }  
     void setScore(int s) { score = s; }
     void setFouls(int f) { fouls = f; }
     void setName(string n) { name = n; }
-    void setBonusFirstHalf(bool bFH) { bonusFirstHalf = bFH; }
-    void setBonusSecondHalf(bool bSH) { bonusSecondHalf = bSH; }
     double getScore() const { return score; }
     double getFouls() const { return fouls; }
     string getName() const { return name; }
-    bool getBonusFirstHalf() const { return bonusFirstHalf; }
-    bool getBonusSecondHalf() const { return bonusSecondHalf; }
+    
 };
 
 class Scoreboard
@@ -91,7 +85,11 @@ class Scoreboard
         cout << setw(10) << team1.getName() << "\t\t\t\t" << setw(12) << team2.getName()<< endl;
         color = "\x1b[91;1m"; //red 
         cout << color << setw(7) << team1.getScore() << "\t\t\t\t\t\t" << setw(6) <<  team2.getScore()  << reset<< endl;
-        cout << "\t\t\t\tQTR: " << period << endl; 
+        cout << "\t\t\t\tQTR: ";
+        if (period<5)
+        { cout<< period << endl; }
+        else
+        cout<<"OT"<<endl;
 
         //dealing with Boolean data
         if(poss == true)
